@@ -20,7 +20,7 @@ Universo Santa Tecla
 ### vocabulary
 
 ![Vocabulario Eva](./docs/images/conect_4.jpg)  
-![Vocabulario Fer](./docs/images/Conecta4correccion.jpg)  
+![Vocabulario Fer](./docs/images/Conecta4correccion.png)  
 ### initialState  
   
 ![Estado_inicial]()  
