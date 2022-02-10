@@ -19,8 +19,8 @@ Universo Santa Tecla
 [Youtube](https://www.youtube.com/watch?v=JBSbiilzg9U)
 ### vocabulary
 
-![Vocabulario](./docs/images/conect_4.jpg)  
-  
+![Vocabulario Eva](./docs/images/conect_4.jpg)  
+![Vocabulario Fer](./docs/images/Conecta4correccion.jpg)  
 ### initialState  
   
 ![Estado_inicial]()  
