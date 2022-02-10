@@ -23,11 +23,11 @@ Universo Santa Tecla
 ![Vocabulario Fer](./docs/images/Conecta4correccion.png)  
 ### initialState  
   
-![Estado_inicial]()  
+![Estado_inicial](./docs/images/EstadoInicial.png)  
   
 ### finalState 
 
-![Estado_final]()  
+![Estado_final](./docs/images/estadoFinal.png)  
   
 ### instructions  
   
