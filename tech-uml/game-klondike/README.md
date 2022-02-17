@@ -22,11 +22,11 @@ Universo Santa Tecla
   
 ### initialState  
   
-![Estado_inicial](./docs/images/inital.png)   
+![Estado_inicial](./docs/images/image2.png)   
   
 ### finalState 
 
-![Estado_final](./docs/images/image2.png)  
+![Estado_final](./docs/images/final2.PNG)  
   
 ### instructions  
   
