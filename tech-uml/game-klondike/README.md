@@ -18,15 +18,15 @@ Universo Santa Tecla
 [Youtube](https://www.youtube.com/watch?v=yjgQXcFVBQY)
 ### vocabulary
 
-![Vocabulario](./docs/images/Klondike_vocabulario.jpg)  
+![Vocabulario](./docs/images/image.png)  
   
 ### initialState  
   
-![Estado_inicial]()  
+![Estado_inicial](./docs/images/initial.png)   
   
 ### finalState 
 
-![Estado_final]()  
+![Estado_final](./docs/images/final.png)  
   
 ### instructions  
   
