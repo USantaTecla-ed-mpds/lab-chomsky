@@ -11,7 +11,7 @@ Universo Santa Tecla
     * [instructions](#instructions)  
 ## domainModel  
   
-![klondike](./docs/images/klondike.png)  
+![klondike](./images/klondike.png)  
 
 [WIKI](https://es.wikipedia.org/wiki/Solitario_de_cartas)
 
