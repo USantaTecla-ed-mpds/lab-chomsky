@@ -19,15 +19,16 @@ Universo Santa Tecla
 
 ### vocabulary
 
-![Vocabulario]()  
+![Vocabulario](./docs/images/Klondike_clases.svg)
+![Vocabulario](./docs/images/Klondike_clases_movimientos.svg) 
   
 ### initialState  
   
-![Estado_inicial]()   
+![Estado_inicial](./docs/images/Klondike_initial_state.svg)   
   
 ### finalState 
 
-![Estado_final]()  
+![Estado_final](./docs/images/Klondike_final_state.svg)  
   
 ### instructions  
   
