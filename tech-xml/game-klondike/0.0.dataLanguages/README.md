@@ -3,7 +3,7 @@ Universo Santa Tecla
 [uSantaTecla@gmail.com](mailto:uSantaTecla@gmail.com)  
   
 ## requirements 
-
+~~~~
 <Klondike>
     <state name="start">
         <player>Maria Antoñeta</player>
@@ -120,3 +120,4 @@ Universo Santa Tecla
         </table>
     </state>
 </Klondike>
+~~~~
