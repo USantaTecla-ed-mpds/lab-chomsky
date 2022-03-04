@@ -4,7 +4,7 @@ Universo Santa Tecla
   
 ## requirements 
 
----
+~~~~
 - name: start
   player: Maria Antoñeta
   table:
@@ -128,3 +128,5 @@ Universo Santa Tecla
         num_cards: '0'
     - cards:
         num_cards: '0'
+~~~~
+
