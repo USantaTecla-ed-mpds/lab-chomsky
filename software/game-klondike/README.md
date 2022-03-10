@@ -7,8 +7,7 @@ Universo Santa Tecla
 * [domainModel](#domainModel)  
     * [vocabulary](#vocabulary)  
     * [initialState](#initialState)  
-    * [finalState](#finalState)
-    * [instructions](#instructions)  
+ 
 
 ## domainModel  
   
@@ -21,19 +20,11 @@ Universo Santa Tecla
 
 ### vocabulary
 
-![Vocabulario]()  
+![vocabulary](../game-klondike/docs/images/klondike.svg)  
   
-### initialState  
-  
-![Estado_inicial]()  
-  
-### finalState 
 
-![Estado_final]()  
+### moves
   
-### instructions  
-  
-![Instrucciones]()  
-  
-![Instrucciones]()  
-  
+![moves](../game-klondike/docs/images/klondikeMoves.svg) 
+
+
