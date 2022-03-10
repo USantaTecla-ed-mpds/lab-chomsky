@@ -20,11 +20,11 @@ Universo Santa Tecla
 
 ### vocabulary
 
-![vocabulary](../game-klondike/docs/images/klondike_.png)  
+![vocabulary](../game-klondike/docs/images/Klondike.svg)  
   
 
 ### moves
   
-![moves](../game-klondike/docs/images/klondikeMoves.png) 
+![moves](../game-klondike/docs/images/KlondikeMoves.svg) 
 
 
