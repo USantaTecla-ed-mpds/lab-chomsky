@@ -21,20 +21,7 @@ Universo Santa Tecla
 
 ### vocabulary
 
-![Vocabulario]()  
+![Vocabulario](../game-connect4/docs/images/Connect4.svg)   
   
-### initialState  
-  
-![Estado_inicial]()  
-  
-### finalState 
 
-![Estado_final]()  
-  
-### instructions  
-  
-![Instrucciones]()  
-  
-![Instrucciones]()  
-  
  
