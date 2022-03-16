@@ -18,3 +18,18 @@ Universo Santa Tecla
 
 [Youtube](https://www.youtube.com/watch?v=yjgQXcFVBQY)
 
+## vocabulary 
+
+![vocabulary](./docs/images/Vocabulary.svg)  
+
+## Initial State (after deal)
+
+![initialState](./docs/images/InitialState.svg)  
+
+## Card location during a game
+
+![cardLocation](./docs/images/CardLocation.svg)  
+
+## Game states
+
+![gameState](./docs/images/GameState.svg) 
