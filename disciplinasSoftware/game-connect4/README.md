@@ -6,9 +6,7 @@ Universo Santa Tecla
 
 * [domainModel](#domainModel)  
     * [vocabulary](#vocabulary)  
-    * [initialState](#initialState)  
-    * [finalState](#finalState)
-    * [instructions](#instructions)  
+    * [gameStates](#gameStates)  
 
 ## domainModel  
 
@@ -18,4 +16,10 @@ Universo Santa Tecla
 
 [Youtube](https://www.youtube.com/watch?v=JBSbiilzg9U)
 
+## vocabulary 
 
+![vocabulary](./docs/images/Vocabulary.svg) 
+
+## gameStates
+
+![gameStates](./docs/images/GameStates.svg) 
