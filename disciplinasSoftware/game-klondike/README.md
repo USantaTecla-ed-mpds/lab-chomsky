@@ -7,8 +7,9 @@ Universo Santa Tecla
 * [domainModel](#domainModel)  
     * [vocabulary](#vocabulary)  
     * [initialState](#initialState)  
-    * [finalState](#finalState)
-    * [instructions](#instructions)  
+    * [cardLocation](#cardLocation)
+    * [gameStates](#gameStates)  
+    * [TableauToTableauMove](#TableauToTableauMove)
 
 ## domainModel  
   
