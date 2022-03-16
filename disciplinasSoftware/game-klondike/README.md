@@ -33,3 +33,7 @@ Universo Santa Tecla
 ## Game states
 
 ![gameState](./docs/images/GameState.svg) 
+
+## TableauToTableau Move
+
+![gameState](./docs/images/TableauToTableau.svg) 
