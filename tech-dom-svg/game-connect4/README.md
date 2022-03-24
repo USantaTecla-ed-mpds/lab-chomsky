@@ -6,7 +6,7 @@ Universo Santa Tecla
 
 * [domainModel](#domainModel)  
     * [vocabulary](#vocabulary)  
-    * [gameStates](#gameStates)  
+    * [instructions](#instructions)  
 
 ## domainModel  
 
