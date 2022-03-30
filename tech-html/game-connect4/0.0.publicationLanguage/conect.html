@@ -7,19 +7,34 @@
     <title>Connect 4</title>
 </head>
 <body>
+    <header>
+        
+        <h1>Connect4</h1>
+        <br>
+        <p>
+            Player red=0
+            Player yellow=x
+        </p>
+    </header>
+    <br>
     <p>
-    Player1<input type="radio" name="player1">
-    Player2<input type="radio" name="player2">
-    </p>
-    <p></p>
-    Red <input type="checkbox" name="red" id="red">
-    yellow <input type="checkbox" name="yellow" id="yellow">
-    <p>
-        <input type="" name="play" value="play" />
-    </p>
-     <p>
-          <input type="reset" name="reset" value="reset" />
-     </p>
+        Turn:<select id="turn" name="turn">
+              <option>player red</option>
+              <option selected>player yellow</option>
+        </select>
+          
+        Vertical:<select id="vertical" name="vertical">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+          </select> 
+    </p>      
+    <input type="submit" name="enviar" value="enviar valores" />
+    <input type="reset" name="borrar" value="borrar valores" />
      <table  border >
         <caption>Connect4</caption>
        
@@ -31,7 +46,7 @@
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td>red</td>
+                        <td>0</td>
                     </tr>
                     <tr align="center">
                         <td> </td>
@@ -39,8 +54,8 @@
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td> </td>
-                        <td>red</td>
+                        <td>x</td>
+                        <td>0</td>
                     </tr>   
                     <tr align="center">
                         <td> </td>
@@ -48,35 +63,35 @@
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td> </td>
-                        <td> yellow</td>
+                        <td>0</td>
+                        <td>x</td>
                     </tr>    
                     <tr align="center">
                         <td> </td>
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td> yellow</td>
-                        <td>red</td>
-                        <td> yellow</td>
+                        <td></td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>    
                     <tr align="center">
                         <td> </td>
                         <td> </td>
                         <td></td>
-                        <td>red </td>
-                        <td>red </td>
-                        <td> yellow</td>
-                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td>x</td>
+                        <td>0</td>
                     </tr>       
                     <tr align="center">
-                        <td>yellow </td>
-                        <td>yellow </td>
-                        <td>yellow</td>
-                        <td>red</td>
-                        <td> yellow</td>
-                        <td>red </td>
-                        <td>red </td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>0</td>
+                        <td>x</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>    
             </tbody>
     </table>
