@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Connect4</title>
+	    <link rel="stylesheet" type="text/css" href="connect4.css" />
+	</head>
+	
+	<body>
+	    <header>
+	        <h1>Connect4</h1>
+	    </header>
+	    <main name="game">
+	        <section id="players">
+	            <fieldset>
+	                <legend>Players</legend>
+	                <p class="player" id="playerRed">Player Red</p>
+	                <p class="player" id="playerYellow">Player Yellow</p>
+	                <p id="turn">Turn= Player Yellow</p>
+	            </fieldset>
+	        </section>
+	        <section id="board" name="board">
+	            <table>
+	                <tbody>
+	                    <th>1</th>
+	                    <th>2</th>
+	                    <th>3</th>
+	                    <th>4</th>
+	                    <th>5</th>
+	                    <th>6</th>
+	                    <th>7</th>
+	                    <tr>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td class="redtoken"></td>
+	                    </tr>
+	                    <tr>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td class="yellowtoken"></td>
+	                        <td class="redtoken"></td>
+	                    </tr>
+	                    <tr>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td class="redtoken"></td>
+	                        <td class="yellowtoken"></td>
+	                    </tr>
+	                    <tr>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td></td>
+	                        <td class="redtoken"></td>
+	                        <td class="redtoken"></td>
+	                    </tr>
+	                    <tr>
+	                        <td> </td>
+	                        <td> </td>
+	                        <td></td>
+	                        <td></td>
+	                        <td></td>
+	                        <td class="yellowtoken"></td>
+	                        <td class="redtoken"></td>
+	                    </tr>
+	                    <tr>
+	                        <td class="yellowtoken"></td>
+	                        <td class="yellowtoken"></td>
+	                        <td class="yellowtoken"></td>
+	                        <td class="redtoken"></td>
+	                        <td class="yellowtoken"></td>
+	                        <td class="redtoken"></td>
+	                        <td class="redtoken"></td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </section>
+	        <section id="nextput" name="nextput">
+	            <fieldset>
+	                <legend>Next Put</legend>
+	                <form action="http://conecta4.com/nextput">
+	
+	                    <p>Which Vertical do you want to put next player yellow?</p>
+	                    <label> Vertical: </label>
+	                    <select id="vertical" name="vertical">
+	                        <option>1</option>
+	                        <option>2</option>
+	                        <option>3</option>
+	                        <option>4</option>
+	                        <option>5</option>
+	                        <option>6</option>
+	                        <option>7</option>
+	                    </select>
+	                    <input type="button" value="put" />
+	                </form>
+	            </fieldset>
+	        </section>
+	    </main>
+	</body>
+
+</html>

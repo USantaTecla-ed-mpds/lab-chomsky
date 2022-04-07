@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(to left, rgb(3, 172, 250), rgb(117, 225, 233), rgb(140, 238, 241));
+}
+
+main {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 15em 15em;
+    grid-template-rows: 10em 15em;
+}
+
+#players {
+    display: grid;
+    grid-template-columns: 15em;
+    grid-template-rows: 10em 10em;
+    gap: 0em 0em;
+    grid-template-areas: "..""nextput  ";
+    grid-area: 1 / 2 / 3 / 3;
+}
+
+.player {
+    font-style: italic;
+    display: inline;
+}
+
+#playerRed {
+    color: red;
+}
+
+#playerYellow {
+    color: yellow;
+}
+
+
+table, th, td {
+    border: 0.2em solid blue;
+}
+
+
+td {
+    padding: 1.06em;   
+}
+
+td.redtoken {
+    background-color: red;
+}
+
+td.yellowtoken {
+    background-color: yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#board {
+    grid-area: 1 / 3 / 3 / 4;
+    width: 10em;
+    height: 10em;
+}
+
+#nextput {
+    grid-area: 2 / 2 / 3 / 2;
+}
+
+h1 {
+    font-size: 5rem;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 2px red,
+        3px 4px 3px rgb(236, 240, 8);
+    text-align: center;
+    letter-spacing: 2px;
+}
