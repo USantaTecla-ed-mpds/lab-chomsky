@@ -7,7 +7,6 @@ main, header {
 	text-align: center;
 }
 
-
 h1 {
     color: white;
     font-weight: bold;
@@ -41,7 +40,6 @@ section[name="playerControls"] {
 	grid-row-end: 1;
 }
 
-
 #foundation1 {
 	grid-column-start: 5;
 	grid-column-end: 5;
@@ -61,7 +59,6 @@ section[name="playerControls"] {
 	grid-column-start: 8;
 	grid-column-end: 8;
 }
-
 
 #tableau1 {
 	grid-column-start: 1;
@@ -132,14 +129,12 @@ section[name="playerControls"] {
 	background-image:  url("./images/eight_clubs.png"); 	
 }
 
-
 ul.pile {
 	height: 8em;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
-
 
 ul.pile li:nth-child(2)  { margin: -8em; }
 ul.pile li:nth-child(3)  { margin: -8em; }
