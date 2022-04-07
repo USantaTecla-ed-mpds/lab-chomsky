@@ -1,0 +1,155 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url("./images/tableCloth.jpg") no-repeat;
+}
+
+main, header {
+	text-align: center;
+}
+
+
+h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 8vmin;
+    margin-bottom: 1vh;
+}
+
+section[name="playerControls"] {
+	margin: 3em;
+}
+
+#piles {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 2em;
+	text-align: center;
+}
+
+#stock {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row-end: 1;
+}
+
+#waste {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 1;
+}
+
+
+#foundation1 {
+	grid-column-start: 5;
+	grid-column-end: 5;
+}
+
+#foundation2 {
+	grid-column-start: 6;
+	grid-column-end: 6;
+}
+
+#foundation3 {
+	grid-column-start: 7;
+	grid-column-end: 7;
+}
+
+#foundation4 {
+	grid-column-start: 8;
+	grid-column-end: 8;
+}
+
+
+#tableau1 {
+	grid-column-start: 1;
+	grid-column-end: 1;
+}
+
+#tableau2 {
+	grid-column-start: 2;
+	grid-column-end: 2;
+}
+
+#tableau3 {
+	grid-column-start: 3;
+	grid-column-end: 3;
+}
+
+#tableau4 {
+	grid-column-start: 4;
+	grid-column-end: 4;
+}
+
+#tableau5 {
+	grid-column-start: 5;
+	grid-column-end: 5;
+}
+
+#tableau6 {
+	grid-column-start: 6;
+	grid-column-end: 6;
+}
+
+#tableau7 {
+	grid-column-start: 7;
+	grid-column-end: 7;
+}
+
+.card {
+	display: inline-block;
+	width: 3.3em;
+	height: 4.8em;
+	border: 1px solid #666;
+	border-radius: .3em;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+	-khtml-border-radius: .3em;
+	font-size: 1.9em;
+	/* @change: adjust this value to make bigger or smaller cards */
+	position: relative;
+	background-color: #fff;
+	-moz-box-shadow: .2em .2em .5em #333;
+	-webkit-box-shadow: .2em .2em .5em #333;
+	box-shadow: .2em .2em .5em #333;
+	background-size: cover;
+	-webkit-user-select: initial;
+	user-select: initial;
+	cursor: pointer;
+}
+
+.card.empty {
+	background-color: #9fce73;
+}
+
+.card.back {
+	background-image: url("./images/card-back.jpg");
+}
+
+.card.eightClubs {
+	background-image:  url("./images/eight_clubs.png"); 	
+}
+
+
+ul.pile {
+	height: 8em;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+ul.pile li:nth-child(2)  { margin: -8em; }
+ul.pile li:nth-child(3)  { margin: -8em; }
+ul.pile li:nth-child(4)  { margin: -8em; }
+ul.pile li:nth-child(5)  { margin: -8em; }
+ul.pile li:nth-child(6)  { margin: -8em;}
+ul.pile li:nth-child(7)  { margin: -8em;}
+ul.pile li:nth-child(8)  { margin: -8em;}
+ul.pile li:nth-child(9)  { margin: -8em;}
+ul.pile li:nth-child(10) { margin: -8em;}
+ul.pile li:nth-child(11) { margin: -8em;}
+ul.pile li:nth-child(12) { margin: -8em;}
+ul.pile li:nth-child(13) { margin: -8em;}
