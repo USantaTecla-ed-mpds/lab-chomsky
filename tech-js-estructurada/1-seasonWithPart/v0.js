@@ -2,10 +2,11 @@ const { Console } = require("console-mpds");
 const console = new Console();
 
 
-const STATION_BEGINNING_DAY = 21
+const SPRING_BEGINNING_DAY = 21
 const DAYS_IN_MONTH = 30;
-const DAYS_STATION_BEGINNING_TO_MONTH_END = DAYS_IN_MONTH - STATION_BEGINNING_DAY;
-const DAYS_IN_STATION = 30 * 3;
+const DAYS_IN_STATION = DAYS_IN_MONTH * 3;
+const DAYS_FROM_WINTER_TO_YEAR_END = DAYS_IN_STATION - SPRING_BEGINNING_DAY;
+const DAYS_IN_STATION_INTERVAL = 30;
 
 
 const day = console.readNumber(`Escriba un día (1-${DAYS_IN_MONTH}): `)
@@ -13,10 +14,11 @@ const month = console.readNumber(`Escriba un mes (1-12): `)
 const year = console.readNumber(`Escriba un año (1-...): `)
 
 const dayOfTheYear = (month - 1) * DAYS_IN_MONTH + day;
+const daysFromWinter = dayOfTheYear + DAYS_FROM_WINTER_TO_YEAR_END;
 let season;
-console.writeln(`estacion es ${~~((dayOfTheYear + DAYS_STATION_BEGINNING_TO_MONTH_END) / DAYS_IN_MONTH)}`);
 
-switch (~~((dayOfTheYear + DAYS_STATION_BEGINNING_TO_MONTH_END) / DAYS_IN_MONTH)) {
+
+switch (~~(daysFromWinter / DAYS_IN_STATION)) {
     case 0:
         season = 'invierno';
         break;
@@ -29,12 +31,24 @@ switch (~~((dayOfTheYear + DAYS_STATION_BEGINNING_TO_MONTH_END) / DAYS_IN_MONTH)
     case 3:
         season = 'otoño';
         break;
+    case 4:
+        season = 'invierno';
+        break;
 }
 
 let seasonInterval;
-
-const daysFromStationBeginning = (dayOfTheYear + DAYS_STATION_BEGINNING_TO_MONTH_END) % DAYS_IN_STATION
-
+let daysFromStationBegginning = daysFromWinter % DAYS_IN_STATION;
+switch (~~(daysFromStationBegginning / DAYS_IN_STATION_INTERVAL)) {
+    case 0:
+        seasonInterval = 'primeros';
+        break;
+    case 1:
+        seasonInterval = 'mediados';
+        break;
+    case 2:
+        seasonInterval = 'finales';
+        break;
+}
 
 console.writeln(`El día ${day} del ${month} de ${year} cae a ${seasonInterval} de ${season}.`);
 
