@@ -9,9 +9,6 @@ const AUTUMN_BEGINNING_DAY = SUMMER_BEGINNING_DAY + DAYS_IN_SEASON;
 const WINTER_BEGINNING_DAY = AUTUMN_BEGINNING_DAY + DAYS_IN_SEASON;
 const DAYS_WINTER_TO_END_YEAR = 365 - WINTER_BEGINNING_DAY;
 
-const DAYS_IN_SEASON_INTERVAL = 30;
-
-
 const day = console.readNumber(`Escriba un día (1-${DAYS_IN_MONTH}): `)
 const month = console.readNumber(`Escriba un mes (1-12): `)
 const year = console.readNumber(`Escriba un año (1-...): `)
@@ -42,10 +39,6 @@ if (0 <= daysFromStationBegginning && daysFromStationBegginning < 30) {
 else if (30 <= daysFromStationBegginning && daysFromStationBegginning < 60) {
     seasonInterval = 'mediados';
 }
-
-console.writeln(`El día ${dayOfTheYear} desde inicio ${daysFromStationBegginning} `);
-
-
 
 console.writeln(`El día ${day} del ${month} de ${year} cae a ${seasonInterval} de ${season}.`);
 
