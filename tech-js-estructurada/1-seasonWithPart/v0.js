@@ -1,13 +1,11 @@
 const { Console } = require("console-mpds");
 const console = new Console();
 
-
 const SPRING_BEGINNING_DAY = 21
 const DAYS_IN_MONTH = 30;
 const DAYS_IN_SEASON = DAYS_IN_MONTH * 3;
 const DAYS_FROM_WINTER_TO_YEAR_END = DAYS_IN_SEASON - SPRING_BEGINNING_DAY;
 const DAYS_IN_SEASON_INTERVAL = 30;
-
 
 const day = console.readNumber(`Escriba un día (1-${DAYS_IN_MONTH}): `)
 const month = console.readNumber(`Escriba un mes (1-12): `)
@@ -50,3 +48,4 @@ switch (~~(daysFromStationBegginning / DAYS_IN_SEASON_INTERVAL)) {
 }
 
 console.writeln(`El día ${day} del ${month} de ${year} cae a ${seasonInterval} de ${season}.`);
+
