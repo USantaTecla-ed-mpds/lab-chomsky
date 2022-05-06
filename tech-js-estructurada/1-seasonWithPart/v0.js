@@ -2,9 +2,9 @@ const { Console } = require("console-mpds");
 const console = new Console();
 
 const SPRING_BEGINNING_DAY = 21
+const DAYS_IN_MONTH = 30;
 const DAYS_IN_STATION = DAYS_IN_MONTH * 3;
 const DAYS_FROM_WINTER_TO_YEAR_END = DAYS_IN_STATION - SPRING_BEGINNING_DAY;
-const DAYS_IN_MONTH = 30;
 const DAYS_IN_STATION_INTERVAL = 30;
 
 const day = console.readNumber(`Escriba un día (1-${DAYS_IN_MONTH}): `)
