@@ -258,14 +258,14 @@ let option;
 do {
     const options = ['Ver países', 'Buscar país', 'Salir'];
     for (let i = 0; i < options.length; i++) {
-        console.writeln(`${i+1}. ${options[i]}`);
+        console.writeln(`${i + 1}. ${options[i]}`);
     }
-    option = console.readNumber(`Escoge una opcion : [1-${options.length}]`);   
+    option = console.readNumber(`Escoge una opcion : [1-${options.length}]`);
     switch (option) {
         case 1:
             let msg = NAMES[0];
             for (i = 1; i < NAMES.length; i++) {
-                const preffix = [', ', ' y '][i < NAMES.length -1? 0:1];
+                const preffix = [', ', ' y '][i < NAMES.length - 1 ? 0 : 1];
                 msg += preffix + NAMES[i];
             }
             console.writeln(msg + ".");
@@ -280,4 +280,4 @@ do {
         default:
             console.writeln(`La opcion escogida no es correcta`);
     }
-} while(option !== 3);
+} while (option !== 3);
