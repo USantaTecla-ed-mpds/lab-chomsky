@@ -508,7 +508,7 @@ const SUBREGIONS = [
 let notRepeatedRegions = [];
 for (let region of REGIONS) {
     let repeated = false;
-    for (let notRepeatedRegion of notRepeatedRegions) {
+    for (const notRepeatedRegion of notRepeatedRegions) {
         if (region === notRepeatedRegion) {
             repeated = true;
         }
@@ -522,22 +522,22 @@ let notRepeatedOrUndefinedSubregions = [];
 let subregionIndex = 0;
 for (let subregion of SUBREGIONS) {
     let repeated = false;
-    for (let notRepeatedSubregion of notRepeatedOrUndefinedSubregions) {
+    for (const notRepeatedSubregion of notRepeatedOrUndefinedSubregions) {
         if (subregion === notRepeatedSubregion[0]) {
             repeated = true;
         }
     }
     if (!repeated && subregion !== undefined) {
-        const newElement = [subregion, REGIONS[subregionIndex]];
-        notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = newElement;
+        const notRepeatedSubregion = [subregion, REGIONS[subregionIndex]];
+        notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = notRepeatedSubregion;
     }
     subregionIndex++;
 }
 
 let msg = "";
-for (let notRepeatedRegion of notRepeatedRegions) {
+for (const notRepeatedRegion of notRepeatedRegions) {
     msg += notRepeatedRegion + ":" + "\n";
-    for (let notRepeatedSubregion of notRepeatedOrUndefinedSubregions) {
+    for (const notRepeatedSubregion of notRepeatedOrUndefinedSubregions) {
         if (notRepeatedSubregion[1] === notRepeatedRegion) {
             msg += "\t" + notRepeatedSubregion[0] + "\n";
         }
