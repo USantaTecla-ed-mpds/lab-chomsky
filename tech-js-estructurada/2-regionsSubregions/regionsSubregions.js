@@ -506,23 +506,12 @@ const SUBREGIONS = [
 ];
 
 
-let notRepeatedOrUndefSubregions = [];
-const [SUBREGION_INDEX, REGION_INDEX] = [0, 1];
-for (let i = 0; i < SUBREGIONS.length; i++) {
-    let isNotRepeatedSubregion = true;
-    for (const notRepeatedOrUndefSubRegion of notRepeatedOrUndefSubregions) {
-        isNotRepeatedSubregion &&= notRepeatedOrUndefSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
-    }
-    if (isNotRepeatedSubregion && SUBREGIONS[i] !== undefined) {
-        notRepeatedOrUndefSubregions[notRepeatedOrUndefSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
-    }
-}
 
 let notRepeatedRegions = [];
 for (const region of REGIONS) {
     let isNotRepeatedRegion = true;
     for (const notRepeatedRegion of notRepeatedRegions) {
-        isNotRepeatedRegion &&= notRepeatedRegion != region;
+        isNotRepeatedRegion &&=  region != notRepeatedRegion;
     }
     if (isNotRepeatedRegion) {
         notRepeatedRegions[notRepeatedRegions.length] = region;
@@ -532,9 +521,16 @@ for (const region of REGIONS) {
 let msg = "";
 for (const region of notRepeatedRegions) {
     msg += region + ":" + "\n";
-    for (const subregion of notRepeatedOrUndefSubregions) {
-        if (subregion[REGION_INDEX] === region) {
-            msg += "\t" + subregion[SUBREGION_INDEX] + "\n";
+    let notRepeatedSubregions = [];
+    for (let i = 0; i < SUBREGIONS.length; i++) {
+        let isNotRepeatedSubregion = true;
+        const [subregion, regionOfSubregion] = [SUBREGIONS[i], REGIONS[i]]; 
+        for (const notRepeatedSubRegion of notRepeatedSubregions) {
+            isNotRepeatedSubregion &&= subregion != notRepeatedSubRegion;
+        }
+        if (isNotRepeatedSubregion && subregion !== undefined && regionOfSubregion === region) {
+            msg += "\t" + subregion + "\n";
+            notRepeatedSubregions[notRepeatedSubregions.length] = subregion;
         }
     }
 }
