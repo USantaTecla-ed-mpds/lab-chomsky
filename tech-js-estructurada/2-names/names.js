@@ -273,7 +273,7 @@ do {
         case 2:
             const country = console.readString(`Dame el nombre del país: `);
             for (i = 0; country != NAMES[i] && i < NAMES.length; i++);
-            console.writeln(`El país "${country}" ${(i != NAMES.length) ? `sí` : `no`} está incluido.`);
+            console.writeln(`El país "${country}" ${(country === NAMES[i]) ? `sí` : `no`} está incluido.`);
             break
         case 3:
             break;
