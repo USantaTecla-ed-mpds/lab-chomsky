@@ -517,6 +517,7 @@ for (let i = 0; i < SUBREGIONS.length; i++) {
         notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
     }
 }
+
 let notRepeatedRegions = [];
 for (const region of REGIONS) {
     let isNewRegion = true;
