@@ -505,19 +505,23 @@ const SUBREGIONS = [
     "Eastern Africa"
 ];
 
-let notRepeatedRegions = [];
-let notRepeatedSubregions = [];
-const REGION_INDEX = 1;
-const SUBREGION_INDEX = 0;
+
+let notRepeatedOrUndefinedSubregions = [];
+const [SUBREGION_INDEX, REGION_INDEX] = [0, 1];
 for (let i = 0; i < SUBREGIONS.length; i++) {
-    let [region, subregion] = [REGIONS[i], SUBREGIONS[i]];
-    let [isNewSubregion, isNewRegion] = [true, true];
-    for (const notRepeatedSubRegion of notRepeatedSubregions) {
-        isNewSubregion &&= notRepeatedSubRegion[SUBREGION_INDEX] != subregion;
-        isNewRegion &&= notRepeatedSubRegion[REGION_INDEX] != region;
+    let isNewSubregion = true;
+    for (const notRepeatedSubRegion of notRepeatedOrUndefinedSubregions) {
+        isNewSubregion &&= notRepeatedSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
     }
-    if (isNewSubregion) {
-        notRepeatedSubregions[notRepeatedSubregions.length] = [subregion, region];
+    if (isNewSubregion && SUBREGIONS[i] !== undefined) {
+        notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
+    }
+}
+let notRepeatedRegions = [];
+for (const region of REGIONS) {
+    let isNewRegion = true;
+    for (const notRepeatedRegion of notRepeatedRegions) {
+        isNewRegion &&= notRepeatedRegion != region;
     }
     if (isNewRegion) {
         notRepeatedRegions[notRepeatedRegions.length] = region;
@@ -525,11 +529,11 @@ for (let i = 0; i < SUBREGIONS.length; i++) {
 }
 
 let msg = "";
-for (const notRepeatedRegion of notRepeatedRegions) {
-    msg += notRepeatedRegion + ":" + "\n";
-    for (const notRepeatedSubregion of notRepeatedSubregions) {
-        if (notRepeatedSubregion[REGION_INDEX] === notRepeatedRegion && notRepeatedSubregion[SUBREGION_INDEX] !== undefined) {
-            msg += "\t" + notRepeatedSubregion[SUBREGION_INDEX] + "\n";
+for (const region of notRepeatedRegions) {
+    msg += region + ":" + "\n";
+    for (const subregion of notRepeatedOrUndefinedSubregions) {
+        if (subregion[REGION_INDEX] === region) {
+            msg += "\t" + subregion[SUBREGION_INDEX] + "\n";
         }
     }
 }
