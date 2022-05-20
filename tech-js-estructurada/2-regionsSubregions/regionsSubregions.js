@@ -506,40 +506,36 @@ const SUBREGIONS = [
 ];
 
 
-let uniqueRegions = [];
+let notRepeatedOrUndefinedSubregions = [];
+const [SUBREGION_INDEX, REGION_INDEX] = [0, 1];
+for (let i = 0; i < SUBREGIONS.length; i++) {
+    let isNewSubregion = true;
+    for (const notRepeatedSubRegion of notRepeatedOrUndefinedSubregions) {
+        isNewSubregion &&= notRepeatedSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
+    }
+    if (isNewSubregion && SUBREGIONS[i] !== undefined) {
+        notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
+    }
+}
+
+let notRepeatedRegions = [];
 for (const region of REGIONS) {
-    let isUniqueRegion = true;
-    for (const uniqueRegion of uniqueRegions) {
-        isUniqueRegion &&= region != uniqueRegion;
+    let isNewRegion = true;
+    for (const notRepeatedRegion of notRepeatedRegions) {
+        isNewRegion &&= notRepeatedRegion != region;
     }
-    if (isUniqueRegion) {
-        uniqueRegions[uniqueRegions.length] = region;
+    if (isNewRegion) {
+        notRepeatedRegions[notRepeatedRegions.length] = region;
     }
 }
-
-const uniqueRegionsAndSubregions = []
-for (const uniqueRegion of uniqueRegions) {
-    let uniqueSubregions = [];
-    for (let i = 0; i < SUBREGIONS.length; i++) {
-        let isUniqueSubregion = true;
-        for (const uniqueSubregion of uniqueSubregions) {
-            isUniqueSubregion &&= SUBREGIONS[i] != uniqueSubregion;
-        }
-        if (isUniqueSubregion && REGIONS[i] == uniqueRegion) {
-            uniqueSubregions[uniqueSubregions.length] = SUBREGIONS[i];
-        }
-    }
-    const regionAndSubregions = [uniqueRegion, uniqueSubregions];
-    uniqueRegionsAndSubregions[uniqueRegionsAndSubregions.length] = regionAndSubregions;
-}
-
 
 let msg = "";
-for (const regionSubregions of uniqueRegionsAndSubregions) {
-    const [region, subregions] = regionSubregions;
+for (const region of notRepeatedRegions) {
     msg += region + ":" + "\n";
-    for (const subregion of subregions) {
-        msg += (subregion === undefined) ? "" : "\t" + subregion + "\n";
+    for (const subregion of notRepeatedOrUndefinedSubregions) {
+        if (subregion[REGION_INDEX] === region) {
+            msg += "\t" + subregion[SUBREGION_INDEX] + "\n";
+        }
     }
 }
 console.writeln(msg);
