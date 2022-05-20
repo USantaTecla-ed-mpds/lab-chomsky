@@ -506,15 +506,15 @@ const SUBREGIONS = [
 ];
 
 
-let notRepeatedOrUndefinedSubregions = [];
+let notRepeatedOrUndefSubregions = [];
 const [SUBREGION_INDEX, REGION_INDEX] = [0, 1];
 for (let i = 0; i < SUBREGIONS.length; i++) {
     let isNewSubregion = true;
-    for (const notRepeatedSubRegion of notRepeatedOrUndefinedSubregions) {
-        isNewSubregion &&= notRepeatedSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
+    for (const notRepeatedOrUndefSubRegion of notRepeatedOrUndefSubregions) {
+        isNewSubregion &&= notRepeatedOrUndefSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
     }
     if (isNewSubregion && SUBREGIONS[i] !== undefined) {
-        notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
+        notRepeatedOrUndefSubregions[notRepeatedOrUndefSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
     }
 }
 
@@ -532,7 +532,7 @@ for (const region of REGIONS) {
 let msg = "";
 for (const region of notRepeatedRegions) {
     msg += region + ":" + "\n";
-    for (const subregion of notRepeatedOrUndefinedSubregions) {
+    for (const subregion of notRepeatedOrUndefSubregions) {
         if (subregion[REGION_INDEX] === region) {
             msg += "\t" + subregion[SUBREGION_INDEX] + "\n";
         }
