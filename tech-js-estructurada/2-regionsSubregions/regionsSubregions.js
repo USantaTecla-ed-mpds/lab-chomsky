@@ -506,40 +506,30 @@ const SUBREGIONS = [
 ];
 
 let notRepeatedRegions = [];
-for (let region of REGIONS) {
-    let repeated = false;
-    for (const notRepeatedRegion of notRepeatedRegions) {
-        if (region === notRepeatedRegion) {
-            repeated = true;
-        }
+let notRepeatedSubregions = [];
+const REGION_INDEX = 1;
+const SUBREGION_INDEX = 0;
+for (let i = 0; i < SUBREGIONS.length; i++) {
+    let [region, subregion] = [REGIONS[i], SUBREGIONS[i]];
+    let [isNewSubregion, isNewRegion] = [true, true];
+    for (const notRepeatedSubRegion of notRepeatedSubregions) {
+        isNewSubregion &&= notRepeatedSubRegion[SUBREGION_INDEX] != subregion;
+        isNewRegion &&= notRepeatedSubRegion[REGION_INDEX] != region;
     }
-    if (!repeated) {
+    if (isNewSubregion) {
+        notRepeatedSubregions[notRepeatedSubregions.length] = [subregion, region];
+    }
+    if (isNewRegion) {
         notRepeatedRegions[notRepeatedRegions.length] = region;
     }
-}
-
-let notRepeatedOrUndefinedSubregions = [];
-let subregionIndex = 0;
-for (let subregion of SUBREGIONS) {
-    let repeated = false;
-    for (const notRepeatedSubregion of notRepeatedOrUndefinedSubregions) {
-        if (subregion === notRepeatedSubregion[0]) {
-            repeated = true;
-        }
-    }
-    if (!repeated && subregion !== undefined) {
-        const notRepeatedSubregion = [subregion, REGIONS[subregionIndex]];
-        notRepeatedOrUndefinedSubregions[notRepeatedOrUndefinedSubregions.length] = notRepeatedSubregion;
-    }
-    subregionIndex++;
 }
 
 let msg = "";
 for (const notRepeatedRegion of notRepeatedRegions) {
     msg += notRepeatedRegion + ":" + "\n";
-    for (const notRepeatedSubregion of notRepeatedOrUndefinedSubregions) {
-        if (notRepeatedSubregion[1] === notRepeatedRegion) {
-            msg += "\t" + notRepeatedSubregion[0] + "\n";
+    for (const notRepeatedSubregion of notRepeatedSubregions) {
+        if (notRepeatedSubregion[REGION_INDEX] === notRepeatedRegion && notRepeatedSubregion[SUBREGION_INDEX] !== undefined) {
+            msg += "\t" + notRepeatedSubregion[SUBREGION_INDEX] + "\n";
         }
     }
 }
