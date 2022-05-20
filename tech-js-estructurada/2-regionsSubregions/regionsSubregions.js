@@ -509,22 +509,22 @@ const SUBREGIONS = [
 let notRepeatedOrUndefSubregions = [];
 const [SUBREGION_INDEX, REGION_INDEX] = [0, 1];
 for (let i = 0; i < SUBREGIONS.length; i++) {
-    let isNewSubregion = true;
+    let isNotRepeatedSubregion = true;
     for (const notRepeatedOrUndefSubRegion of notRepeatedOrUndefSubregions) {
-        isNewSubregion &&= notRepeatedOrUndefSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
+        isNotRepeatedSubregion &&= notRepeatedOrUndefSubRegion[SUBREGION_INDEX] != SUBREGIONS[i];
     }
-    if (isNewSubregion && SUBREGIONS[i] !== undefined) {
+    if (isNotRepeatedSubregion && SUBREGIONS[i] !== undefined) {
         notRepeatedOrUndefSubregions[notRepeatedOrUndefSubregions.length] = [SUBREGIONS[i], REGIONS[i]];
     }
 }
 
 let notRepeatedRegions = [];
 for (const region of REGIONS) {
-    let isNewRegion = true;
+    let isNotRepeatedRegion = true;
     for (const notRepeatedRegion of notRepeatedRegions) {
-        isNewRegion &&= notRepeatedRegion != region;
+        isNotRepeatedRegion &&= notRepeatedRegion != region;
     }
-    if (isNewRegion) {
+    if (isNotRepeatedRegion) {
         notRepeatedRegions[notRepeatedRegions.length] = region;
     }
 }
