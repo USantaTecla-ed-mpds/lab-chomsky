@@ -73,12 +73,13 @@ function playGame(colors, MAX_ATTEMPTS_ALLOWED, SECRET_COMBINATION_LENGTH) {
     function getSuccesses(secretCombination, proposalCombination, successCondition) {
         let successes = 0;
         for (let i = 0; i < proposalCombination.length; i++) {
-            for (let j = 0; j < secretCombination.length; j++)
-            if (successCondition(secretCombination[i], proposalCombination[j], i, j)) {
+            for (let j = 0; j < secretCombination.length; j++) {
+                if (successCondition(secretCombination[i], proposalCombination[j], i, j)) {
                     successes++;
+                }
             }
         }
-        return  successes;
+        return successes;
     }
 
     function blackCondition(secretColor, proposalColor, indexSecretColor,  indexProposalColor) {
