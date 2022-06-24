@@ -55,10 +55,10 @@ function initGame() {
     return {
         play: function () {
             const secretCombination = initSecretCombination(gameSettings);
-            board = initBoard();
+            const board = initBoard();
             do {
                 board.show();
-                attempt = initAttempt(secretCombination, gameSettings);
+                const attempt = initAttempt(secretCombination, gameSettings);
                 attempt.play();
                 board.addAttempt(attempt);
             } while (!board.isEndGame(gameSettings.getMaxAttempts()));
@@ -69,7 +69,7 @@ function initGame() {
     function initSecretCombination(gameSettings) {
         let secretCombination = initCombination(gameSettings);
         do {
-            randomColor = gameSettings.getColors()[parseInt(Math.random() * 6)];
+            const randomColor = gameSettings.getColors()[parseInt(Math.random() * 6)];
             if (!secretCombination.contains(randomColor)) {
                 secretCombination.addColor(randomColor);
             }
@@ -126,7 +126,7 @@ function initGame() {
             },
             hasInValidColors: function () {
                 let hasInvalidColors;
-                gameColors = initCombination(gameSettings);
+                const gameColors = initCombination(gameSettings);
                 gameColors.setColors(gameSettings.getColors());
                 for (let i = 0; i < colors.length; i++) {
                     hasInvalidColors |= !gameColors.contains(colors[i]);
@@ -183,7 +183,7 @@ function initGame() {
             let proposalCombination = initCombination(gameSettings);
             let error;
             do {
-                response = console.readString(`Propon una combinacion:`);
+                const response = console.readString(`Propon una combinacion:`);
                 proposalCombination.setColors(response);
                 if (proposalCombination.hasInValidLength()) {
                     console.writeln(`- La longitud de la combinacion es incorrecta!`);
