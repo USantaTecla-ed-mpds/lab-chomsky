@@ -15,7 +15,6 @@ function playMasterMind() {
 
 function initYesNoDialog(question) {
     let answer = ``;
-
     return {
         read: function () {
             let error;
@@ -27,11 +26,9 @@ function initYesNoDialog(question) {
                 }
             } while (error);
         },
-
         isAffirmative: function () {
             return answer === `si`;
         },
-
         isNegative: function () {
             return answer === `no`;
         }
@@ -39,10 +36,9 @@ function initYesNoDialog(question) {
 }
 
 function initGame() {
-
-    const gameSettings = {
+    let gameSettings = {
         getColors: function () {
-            return "rgybmc";
+            return "rgybop";
         },
         getMaxAttempts: function () {
             return 10;
@@ -50,31 +46,80 @@ function initGame() {
         getCombinationLength: function () {
             return 4;
         }
-    }
+    };
+
 
     return {
         play: function () {
-            const secretCombination = initSecretCombination(gameSettings);
-            board = initBoard();
+            console.writeln(`----- MASTERMIND -----`);
+            const board = initBoard(gameSettings);
             do {
                 board.show();
-                attempt = initAttempt(secretCombination, gameSettings);
-                attempt.play();
-                board.addAttempt(attempt);
-            } while (!board.isEndGame(gameSettings.getMaxAttempts()));
-            showEndGameMessage(board);
+                const proposalCombination = initCombination(gameSettings);
+                proposalCombination.read();
+                board.add(proposalCombination);
+            } while (!board.isEndGame());
+            console.writeln(board.isWinner() ? "Has ganado!!! ;-)" : "Has perdido!!! :-(");
+        }
+    }
+
+    function initBoard(gameSettings) {
+        let proposalCombinations = [];
+        const secretCombination = initSecretCombination(gameSettings);
+        return {
+            show: function () {
+                console.writeln(`${getNumberOfAttempts()} attempt(s):\n****`);
+                for (const proposalCombination of proposalCombinations) {
+                    const result = secretCombination.getResult(proposalCombination);
+                    result.show();
+                }
+            },
+            add: function (proposalCombination) {
+                proposalCombinations.push(proposalCombination);
+            },
+            isEndGame() {
+                return (this.isWinner() || getNumberOfAttempts() > gameSettings.getMaxAttempts());
+            },
+            isWinner() {
+                const lastProposalCombination = proposalCombinations[proposalCombinations.length - 1];
+                const result = secretCombination.getResult(lastProposalCombination);
+                return result.isWinner();
+            }
+        }
+        function getNumberOfAttempts() {
+            return proposalCombinations.length;
         }
     }
 
     function initSecretCombination(gameSettings) {
-        let secretCombination = initCombination(gameSettings);
+        const combination = initCombination(gameSettings);
         do {
             randomColor = gameSettings.getColors()[parseInt(Math.random() * 6)];
-            if (!secretCombination.contains(randomColor)) {
-                secretCombination.addColor(randomColor);
+            if (!combination.contains(randomColor)) {
+                combination.addColor(randomColor);
             }
-        } while (secretCombination.hasInValidLength());
-        return secretCombination;
+        } while (!combination.hasValidLength());
+
+        return {
+            getResult: function (proposalCombination) {
+                const blacks = combination.getBlacks(proposalCombination);
+                const whites = combination.getWhites(proposalCombination);
+                return {
+                    getblacks: function () {
+                        return blacks;
+                    },
+                    getWhites: function () {
+                        return whites;
+                    },
+                    isWinner() {
+                        return blacks === proposalCombination.length;
+                    },
+                    show() {
+                        console.writeln(`${proposalCombination.show()} --> ${blacks} blacks and ${whites} whites`);
+                    }
+                }
+            }
+        }
     }
 
     function initCombination(gameSettings) {
@@ -121,86 +166,37 @@ function initGame() {
             getColors: function () {
                 return colors;
             },
-            hasInValidLength: function () {
-                return colors.length !== gameSettings.getCombinationLength();
+            hasValidLength: function () {
+                return colors.length === gameSettings.getCombinationLength();
             },
-            hasInValidColors: function () {
-                let hasInvalidColors;
+            hasValidColors: function () {               
                 gameColors = initCombination(gameSettings);
                 gameColors.setColors(gameSettings.getColors());
+                let hasValidColors  = true;
                 for (let i = 0; i < colors.length; i++) {
-                    hasInvalidColors |= !gameColors.contains(colors[i]);
+                    hasValidColors &= gameColors.contains(colors[i]);
                 }
-                return hasInvalidColors;
+                return hasValidColors;
             },
             setColors: function (otherColors) {
                 colors = otherColors;
+            },
+            read : function() {
+                let error;
+                do {
+                    response = console.readString(`Propon una combinacion:`);
+                    this.setColors(response);
+                    if (!this.hasValidLength()) {
+                        console.writeln(`- La longitud de la combinacion es incorrecta!`);
+                    } else if (!this.hasValidColors()) {
+                        console.writeln(`- Colores invalidos, los colores son" :${gameSettings.getColors()}`);
+                    }
+                    error = !this.hasValidLength() || !this.hasValidColors();
+                } while (error);
             }
         }
     }
 
-    function initBoard() {
-        let attempts = [];
-        return {
-            show: function () {
-                console.writeln(`${attempts.length} attempt(s):\n****`);
-                for (const attempt of attempts) {
-                    attempt.show();
-                }
-            },
-            addAttempt: function (attempt) {
-                attempts[attempts.length] = attempt;
-            },
-            isEndGame(maxAttempts) {
-                const hasMoreAttempts = attempts.length < maxAttempts;
-                return (this.isWinner() || !hasMoreAttempts);
-            },
-            isWinner() {
-                const lastAttempt = attempts[attempts.length - 1];
-                return lastAttempt.isWinner();
-            }
-        }
-    }
-
-    function initAttempt(secretCombination, gameSettings) {
-        let result = {};
-        return {
-            play: function () {
-                const proposalCombination = getProposalCombination(gameSettings);
-                const numberOfBlacks = proposalCombination.getBlacks(secretCombination);
-                const numberOfWhites = proposalCombination.getWhites(secretCombination);
-                result = {proposalCombination, numberOfBlacks, numberOfWhites};
-            },
-            isWinner: function () {
-                return result.numberOfBlacks === result.proposalCombination.length();
-            },
-            show: function () {
-                console.writeln(`${result.proposalCombination.show()} --> ${result.numberOfBlacks} blacks and ${result.numberOfWhites} whites`);
-            }
-        }
-
-        function getProposalCombination(gameSettings) {
-            let proposalCombination = initCombination(gameSettings);
-            let error;
-            do {
-                response = console.readString(`Propon una combinacion:`);
-                proposalCombination.setColors(response);
-                if (proposalCombination.hasInValidLength()) {
-                    console.writeln(`- La longitud de la combinacion es incorrecta!`);
-                } else if (proposalCombination.hasInValidColors()) {
-                    console.writeln(`- Colores invalidos, los colores son" :${gameSettings.getColors()}`);
-                }
-                error = proposalCombination.hasInValidLength() || proposalCombination.hasInValidColors();
-            } while (error);
-
-            return proposalCombination;
-        }
-    }
-
-
-    function showEndGameMessage(board) {
-        console.writeln(board.isWinner() ? "Has ganado!!! ;-)" : "Has perdido!!! :-(");
-    }
 
 }
 
