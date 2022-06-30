@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/USantaTecla-ed-mpds/lab-chomsky/blob/master/tech-js-basada-objetos/MasterMind/MasterMind-UML.png">
+  <img src="https://github.com/USantaTecla-ed-mpds/lab-chomsky/blob/master/tech-js-basado-objetos/mastermind/MasterMind-UML.png">
 </p>
 
 ```
