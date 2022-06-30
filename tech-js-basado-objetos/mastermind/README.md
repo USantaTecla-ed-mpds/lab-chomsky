@@ -34,6 +34,7 @@ Board ..> Console
 Combination ..> Console
 Combination --> GameSettings
 Result ..> Console
+@enduml
 
 @enduml
 ```
