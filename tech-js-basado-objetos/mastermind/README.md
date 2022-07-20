@@ -6,35 +6,24 @@
 @startuml
 Mastermind ..> YesNoDialog
 Mastermind ..> Game
-Game ..> Console
-YesNoDialog ..> Console
-Game *-- Board
-Game --> GameSettings
-GameSettings : COLORS
-GameSettings : MAX_ATTEMPTS
-GameSettings : COMBINATION_LENGTH
-Board --> GameSettings
-Board *-- SecretCombination
-Board o-> "0..10" ProposalCombination
-Board ..> "0..10"Result
-Game ..> ProposalCombination
+Game *-- SecretCombination
+Game o-> "0..10" ProposalCombination
+Game ..> "0..10" Result
+Game : MAX_ATTEMPTS
+SecretCombination ..> ProposalCombination
 SecretCombination *--> Combination
 SecretCombination ..> Result
 ProposalCombination *--> Combination
+Combination : COLORS
+Combination : COMBINATION_LENGTH
 Combination *-- "1..n" Colors
 enum Colors {
   RED
   BLUE
   YELLOW
   GREEN
-  PURPLE
-  ORANGE
+  CYAN
+  MAGENTA
 }
-Board ..> Console
-Combination ..> Console
-Combination --> GameSettings
-Result ..> Console
-@enduml
-
 @enduml
 ```
