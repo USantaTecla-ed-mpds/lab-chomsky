@@ -76,8 +76,8 @@ function initSecretCombination() {
     combination.fillWithRandomColors();
     return {
         getResult: function (proposalCombination) {
-            const blacks = combination.getBlacks(proposalCombination.getCombination());
-            const whites = combination.getWhites(proposalCombination.getCombination());
+            const blacks = this.getBlacks(proposalCombination);
+            const whites = this.getWhites(proposalCombination);
             return {
                 isWinner() {
                     return blacks === proposalCombination.length();
@@ -86,7 +86,26 @@ function initSecretCombination() {
                     console.writeln(` --> ${blacks} blacks and ${whites} whites`);
                 }
             }
-        }
+        },
+        getBlacks: function (proposalCombination) {
+            let blacks = 0;
+            for (let i = 0; i < combination.length(); i++) {
+                if (proposalCombination.contains(combination.getColor(i), i)) {
+                    blacks++;
+                }
+            }
+            return blacks;
+        },
+        getWhites: function (proposalCombination) {
+            let whites = 0;
+            for (let i = 0; i < combination.length(); i++) {
+                const color = combination.getColor(i);
+                if (proposalCombination.contains(color) && !proposalCombination.contains(color, i)) {
+                    whites++;
+                }
+            }
+            return whites;
+        },
     }
 }
 
@@ -105,6 +124,12 @@ function initProposalCombination() {
         },
         length: function () {
             return combination.length();
+        },
+        contains: function (color, index) {
+            if (arguments.length == 2) {
+                return combination.contains(color, index);
+            }
+            return combination.contains(color);
         }
     }
 }
@@ -120,9 +145,9 @@ function initCombination() {
         length: function () {
             return colors.length;
         },
-        contains: function (color) {
+        contains: function (color, index) {
             if (arguments.length == 2) {
-                return colors[arguments[1]] === color;
+                return colors[index] === color;
             }
             for (let i = 0; i < colors.length; i++) {
                 if (this.contains(color, i)) {
@@ -131,23 +156,8 @@ function initCombination() {
             }
             return false;
         },
-        getBlacks: function (combination) {
-            let blacks = 0;
-            for (let i = 0; i < colors.length; i++) {
-                if (combination.contains(colors[i], i)) {
-                    blacks++;
-                }
-            }
-            return blacks;
-        },
-        getWhites: function (combination) {
-            let whites = 0;
-            for (let i = 0; i < colors.length; i++) {
-                if (combination.contains(colors[i]) && !combination.contains(colors[i], i)) {
-                    whites++;
-                }
-            }
-            return whites;
+        getColor: function (index) {
+            return colors[index];
         },
         hasValidLength: function () {
             return colors.length === COMBINATION_LENGTH;
@@ -200,8 +210,3 @@ function initCombination() {
         }
     }
 }
-
-
-
-
-
