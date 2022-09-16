@@ -26,7 +26,7 @@ function boardView() {
             console.writeln(messages().TITLE);
             this.board.reset();
             this.show();
-            while (!this.board.isEndGame()) {
+            do {
                 this.turnView.nextTurn();
                 let turnInputToken;
                 do {
@@ -37,7 +37,7 @@ function boardView() {
                 } while (this.board.isCompletedColumn(turnInputToken));
                 this.board.putToken(turnInputToken);
                 this.show();
-            };
+            } while (!this.board.isEndGame());
             console.writeln(this.showEndGame());
         },
         show: function () {
@@ -119,16 +119,13 @@ function inLineChecker() {
         IN_LINE_NUMBER_OF_TOKENS: 4,
         tokens: [],
         isInLineToken: function (tokens, token) {
-            if (typeof (token) !== 'undefined') {
-                this.tokens = tokens;
-                let inLineToken = false;
-                inLineToken ||= this.isInLineHorizontal(token);
-                inLineToken ||= this.isInLineVertical(token);
-                inLineToken ||= this.isInLineDiagonal(token);
-                inLineToken ||= this.isInLineReverseDiagonal(token);
-                return inLineToken;
-            }
-            return false;
+            this.tokens = tokens;
+            let inLineToken = false;
+            inLineToken ||= this.isInLineHorizontal(token);
+            inLineToken ||= this.isInLineVertical(token);
+            inLineToken ||= this.isInLineDiagonal(token);
+            inLineToken ||= this.isInLineReverseDiagonal(token);
+            return inLineToken;
         },
         isInLineHorizontal: function (token) {
             let counterColors = 0;
