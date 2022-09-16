@@ -1,0 +1,38 @@
+@startuml
+class Connect4
+class Board
+class Token
+class Turn
+class Player
+class Holes
+class Goal
+class InLine
+enum Colors{
+Red
+Yellow
+}
+
+Connect4 *--> Board
+Connect4 *--> "7..42" Turn
+Player --> Goal
+
+Goal *--> InLine
+
+Token "4" -->  InLine
+
+InLine <|-- Vertical
+InLine <|-- Horizontal
+InLine <|-- Diagonal
+
+
+Turn o--> "2" Player
+Turn <-- Board
+
+Board *--> "7x6" Holes
+
+Holes o--> "0..42" Token
+
+Player ..> "21" Token
+
+Token *--> Colors
+@enduml

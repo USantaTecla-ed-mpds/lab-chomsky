@@ -1,0 +1,89 @@
+@startuml
+
+class connect4{
+    - boardView
+    - yesNoDialog
+    + playGame()
+}
+class yesNoDialog{
+    + read(message)
+    + isAffirmative()
+}
+class board{
+    - tokens[]
+    - lastToken
+    + reset()
+    + isCompletedColumn(token)
+    + putToken(token)
+    - getFirstEmptyRowFromColumn(column)
+    + isEndGame()
+    + isCompleted()
+    + getTokens()
+}
+class boardView{
+    - MAX_ROWS
+    - MAX_COLUMNS
+    - Board
+    - TurnView
+    + init()
+    + show()
+    + showEndGame()
+}
+class inLineChecker{
+    - IN_LINE_NUMBER_OF_TOKENS
+    - tokens
+    + isInLineToken(tokens[], token)
+    - isInLineHorizontal(token)
+    - isInLineVertical(token)
+    - isInLineDiagonal(token)
+    - isInLineReverseDiagonal(token)
+}
+
+class token{
+    - color
+    - coordinate
+    + getColor()
+    + getRow()
+    + getColumn()
+    + setRow(row)
+}
+
+class coordinate {
+    - row 
+    - column
+    + getRow()
+    + getColumn()
+    + setRow(row)
+}
+
+class turnView{
+    - turn
+    + getToken()
+    + nextTurn()
+    + getColor()
+}
+
+class turn{
+    - color
+    + getToken(column) 
+    + nextTurn()
+    + getColor()
+}
+
+enum colors{
+Red
+Yellow
+}
+
+connect4 ..> boardView
+connect4 ..> yesNoDialog
+boardView *--> board
+boardView ..> turnView
+board o--> token
+board ..> inLineChecker
+turnView *--> turn
+turn ..> coordinate
+turn ..> token
+token *--> colors
+token *--> coordinate
+@enduml
