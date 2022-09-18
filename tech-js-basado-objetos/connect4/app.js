@@ -62,7 +62,7 @@ function boardView() {
         },
         showEndGame: function () {
             if (this.board.isCompleted()) {
-                return messages().GAME_OVER;
+                return messages().TIED_GAME;
             }
             return messages().PLAYER + this.turnView.getColor() + messages().WIN;
         },
@@ -306,7 +306,7 @@ function messages() {
         TURN_BY: "\nTurn ",
         COLUMN_NOT_EMPTY: "This column has not empty holes, select another column",
         INSERT_COLUMN: " insert column: ",
-        GAME_OVER: "Game over",
+        TIED_GAME: "Game over",
         PLAYER: "Player ",
         WIN: " win!",
         BOARD_HEADER: "\n 0  1  2  3  4  5  6\n -------------------",
