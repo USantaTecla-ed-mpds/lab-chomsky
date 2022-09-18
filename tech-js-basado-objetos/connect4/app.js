@@ -64,7 +64,7 @@ function boardView() {
             if (this.board.isCompleted()) {
                 return messages().TIED_GAME;
             }
-            return messages().PLAYER + this.turnView.getColor() + messages().WIN1_GAME;
+            return messages().PLAYER + this.turnView.getColor() + messages().WIN_GAME;
         },
     }
 }
