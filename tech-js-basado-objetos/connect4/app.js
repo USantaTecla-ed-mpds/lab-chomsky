@@ -64,7 +64,7 @@ function boardView() {
             if (this.board.isCompleted()) {
                 return messages().TIED_GAME;
             }
-            return messages().PLAYER + this.turnView.getColor() + messages().WIN;
+            return messages().PLAYER + this.turnView.getColor() + messages().WIN1_GAME;
         },
     }
 }
@@ -308,7 +308,7 @@ function messages() {
         INSERT_COLUMN: " insert column: ",
         TIED_GAME: "Game over",
         PLAYER: "Player ",
-        WIN: " win!",
+        WIN_GAME: " win!",
         BOARD_HEADER: "\n 0  1  2  3  4  5  6\n -------------------",
         BOARD_HOLE: " · ",
         BOARD_RED: " R ",
