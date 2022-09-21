@@ -114,7 +114,7 @@ function board(maxRows, maxColumns) {
     }
 }
 
-function inLineChecker() {
+function inLineChecker() { //todo smell repeated code. Use Direction and Coordinate classes
     return {
         IN_LINE_NUMBER_OF_TOKENS: 4,
         tokens: [],
