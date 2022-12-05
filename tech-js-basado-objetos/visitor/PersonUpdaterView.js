@@ -12,7 +12,7 @@ class PersonUpdaterView extends PersonVisitor{
 
     update(person) {
         person.accept(this);
-        return person;
+        return person; //No es necesario devolver nada en este ejemplo pero si fuera necesario se haría así usando un atributo?!
     }
 
     visitMale(male) {
