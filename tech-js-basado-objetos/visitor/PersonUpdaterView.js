@@ -1,13 +1,13 @@
 import  {console}  from './Console.js';
 import  {Person}  from './Person.js';
-import  {Male}  from './Male.js';
-import  {Female}  from './Female.js';
+import  {PersonVisitor}  from './PersonVisitor.js';
 
-class PersonUpdaterView {
+class PersonUpdaterView extends PersonVisitor{
 
     #person;
 
     constructor() {
+        super();
     }
 
     update(person) {

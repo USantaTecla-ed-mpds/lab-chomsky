@@ -16,5 +16,6 @@ class PersonView {
     }
 }
 
+
 export { PersonView };
 
