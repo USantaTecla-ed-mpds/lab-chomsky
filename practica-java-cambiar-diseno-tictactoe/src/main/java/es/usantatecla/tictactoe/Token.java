@@ -8,7 +8,7 @@ public class Token {
 		this.color = color;
 	}
 
-	public boolean isOccupied(Color color) {
+	public boolean isThisColor(Color color) {
 		return this.color.equals(color);
 	}
 
