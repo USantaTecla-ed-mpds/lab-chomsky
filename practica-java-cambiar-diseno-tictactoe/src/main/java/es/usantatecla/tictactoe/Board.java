@@ -17,7 +17,7 @@ class Board {
 		}
 	}
 
-  public boolean isComplete(Color color) {
+	public boolean isComplete(Color color) {
 		for(Coordinate coordinate : this.getCoordinates(color)) {
 			if (coordinate == null){
 				return false;
@@ -25,7 +25,7 @@ class Board {
 		}
 		return true;
 	}
-		
+
 
 	private Coordinate[] getCoordinates(Color color) {
 		assert color != null;
@@ -62,7 +62,7 @@ class Board {
 	public boolean isOccupied(Coordinate coordinate, Color color) {
 		return this.getSquare(coordinate).isOccupied(color);
 	}
-	
+
 	public Square getSquare(Coordinate coordinate) {
 		return squares[coordinate.getRow()][coordinate.getColumn()];
 	}

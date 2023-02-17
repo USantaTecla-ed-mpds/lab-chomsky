@@ -12,7 +12,7 @@ class TicTacToe {
 		this.players = new Player[NUMBER_PLAYERS];
 		this.reset();
 	}
-	
+
 	public void reset() {
 		for (int i = 0; i < NUMBER_PLAYERS; i++) {
 			this.players[i] = new Player(Color.get(i), this.board);
@@ -43,15 +43,15 @@ class TicTacToe {
 			this.activePlayer = (this.activePlayer + 1) % NUMBER_PLAYERS;
 		}		
 	}
-	
+
 	public Color getActiveColor() {
 		return this.players[this.activePlayer].getColor();
 	}
-	
+
 	public void writeWinner() {
 		this.players[this.activePlayer].writeWinner();
 	}
-	
+
 	private boolean isResumedGame() {
 		YesNoDialog yesNoDialog = new YesNoDialog();
 		yesNoDialog.read(Message.RESUME.toString());
@@ -60,7 +60,7 @@ class TicTacToe {
 		}
 		return yesNoDialog.isAffirmative();
 	}
-	
+
 	private boolean isTicTacToe() {
 		return this.board.isTicTacToe(this.getActiveColor());
 	}

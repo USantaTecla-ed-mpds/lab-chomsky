@@ -1,7 +1,7 @@
 package es.usantatecla.tictactoe;
 
 public class Token {
-	
+
 	Color color;
 
 	public Token(Color color) {
@@ -14,7 +14,7 @@ public class Token {
 
 	public void write() {
 		this.color.write();
-		
+
 	}
 
 }
