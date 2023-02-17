@@ -16,7 +16,7 @@ public class Square {
 		if (!isOccupied()) {
 			return false;
 		}
-		return this.token.isOccupied(color);
+		return this.token.isThisColor(color);
 	}
 
 	public void putToken(Token token) {
