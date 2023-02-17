@@ -9,7 +9,7 @@ public class Square {
 	}
 	
 	public boolean isOccupied() {
-		return this.token == null;
+		return this.token != null;
 	}
 	
 	public boolean isOccupied(Color color) {
@@ -36,8 +36,9 @@ public class Square {
 		if (token == null) {
 			Message.NULL_SQUARE.toString();
 		}
-		this.token.write();
-		
+		else {
+			this.token.write();
+		}
 	}
 	
 	

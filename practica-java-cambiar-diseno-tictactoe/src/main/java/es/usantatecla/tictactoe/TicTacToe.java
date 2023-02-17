@@ -33,7 +33,7 @@ class TicTacToe {
 		do {
 			this.playTurn();
 			this.board.write();
-		} while (this.isTicTacToe());
+		} while (!this.isTicTacToe());
 		this.writeWinner();
 	}
 

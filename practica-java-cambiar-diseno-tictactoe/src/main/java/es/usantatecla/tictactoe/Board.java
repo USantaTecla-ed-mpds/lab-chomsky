@@ -68,7 +68,7 @@ class Board {
 	}
 
 	public boolean isEmpty(Coordinate coordinate) {
-		return this.getSquare(coordinate).isOccupied();
+		return !this.getSquare(coordinate).isOccupied();
 	}
 
 	public boolean isTicTacToe(Color color) {
